@@ -20,6 +20,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/headers/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <link href="css/carousel.rtl.css" rel="stylesheet">
     
 </head>
 
@@ -86,6 +87,55 @@
             </div>
         </div>
     </nav>
+
+    <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+            <div class="container">
+              <div class="carousel-caption text-start">
+                <h1>Expertise en Soluciones Tecnológicas</h1>
+                <p class="opacity-75">Con más de 20 años de experiencia, ofrezco servicios completos de reparación de hardware, instalación de software y mantenimiento de equipos informáticos. Ya sea que necesites asistencia para tu hogar o empresa, tengo la solución adecuada para tus necesidades tecnológicas.</p>
+                <p><a class="btn btn-lg btn-primary" href="#">Saber más</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Especialista en Redes y Servidores</h1>
+                <p>Desde la instalación de redes complejas hasta la configuración de servidores y estaciones de trabajo, garantizo que tu infraestructura tecnológica esté funcionando de manera eficiente y segura. Confía en mi experiencia para optimizar tu conectividad y asegurar tu sistema.</p>
+                <p><a class="btn btn-lg btn-primary" href="#">Saber más</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+            <div class="container">
+              <div class="carousel-caption text-end">
+                <h1>Diseño Web y Gestión de Contenidos</h1>
+                <p>Además de mi experiencia técnica, también brindo soluciones creativas en diseño web y administración de plataformas CMS como WordPress, Joomla y Drupal. Llevo tu presencia digital al siguiente nivel con diseños funcionales y optimizados para cualquier dispositivo.</p>
+                <p><a class="btn btn-lg btn-primary" href="#">Saber más</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    
 
     <!-- Espaciado adicional debido a la barra de navegación fija -->
     <div class="mt-5 pt-5"></div>
