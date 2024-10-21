@@ -1,228 +1,309 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <!-- Begin Head -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Landing Page de ejemplo utilizando HTML5, CSS3 y Bootstrap">
-    <title>Landing Page - HTML5, CSS3 y Bootstrap</title>
-    <!--=== custom css ===-->
-    <script src="js/color-modes.js"></script>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/estilos.css">
-    <!-- <link rel="stylesheet" href="css/headers.css"> -->
-    
-    <!-- Enlace a la CDN de Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLR1T2VvoC2f3B3tr9nQ6f7ucnZQF8Ttm6kLx7uXzY" crossorigin="anonymous">
-    
-    <!-- Enlace a la CDN de FontAwesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/headers/">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-    <link href="css/carousel.rtl.css" rel="stylesheet">
-    
+    <meta name="description" content="Currículum en línea de Wilfredo Falcón">
+    <title>CV en Línea - Wilfredo Falcón</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Añadimos el CDN de Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Otros recursos como estilos y fuentes -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
 </head>
+</head>
+<body>    
+    <!-- Barra de progreso de scroll -->
+    <div id="progress-bar"></div>
 
-<body>
-    
-    
-    <!-- Barra de Navegación con Bootstrap -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <!-- Encabezado -->
+    <header id="header">
+    <!-- Menú hamburguesa con tres líneas -->
+    <div class="menu-icon" id="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="logo">Wilfredo Falcón</div>
+        <!-- Menú de navegación, logotipo, etc. -->
+        <nav>
+            <ul class="menu" id="menu">
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#experience">Experiencia</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#portfolio">Portafolio</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+            <a href="cv.pdf" class="btn-download">Descargar CV</a>
+        </nav>
+    </header>
+    <!-- Fondo oscuro que aparecerá al abrir el menú -->
+    <div id="overlay"></div>
+    <!-- Secciones de la página (hero, experiencia, habilidades, etc.) -->
+        
+    <!-- Sección Hero -->
+    <section id="hero" class="hero">
         <div class="container">
+            <img src="images/wkl2024.png" alt="Foto de perfil" class="profile-pic">
+            <h1>Wilfredo Falcón</h1>
+            <p class="subtitle">Especialista en Soporte Técnico y Ciberseguridad con experiencia en Desarrollo de Videojuegos y Administración de Sistemas.</p>
+            <!-- <p class="description">Sólidos conocimientos en el área de reparación de computadoras, tanto hardware como software.</p> -->
+            <div class="social-links">
+                <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://x.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            </div>
             
-            
-            <!-- Logo de la empresa -->
-            <a class="navbar-brand" href="#">
-                <img src="images/wkl2024.png" alt="Logo de la Empresa" style="max-height: 50px;">
-            </a>
+        </div>
+    </section>
 
-            <!-- Botón de hamburguesa para pantallas pequeñas -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <!-- Sección Experiencia -->
+    <section id="experience" class="experience reveal">
+        <h2>Experiencia</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-briefcase"></i> <!-- Ícono de trabajo -->
+                </div>
+                <div class="timeline-content">
+                    <h3>Desarrollador Web</h3>
+                    <span class="timeline-date">Enero 2022 - Presente</span>
+                    <p>Empresa XYZ</p>
+                    <p>Desarrollo y mantenimiento de aplicaciones web usando tecnologías modernas como HTML5, CSS3, JavaScript, y frameworks como React.js.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-briefcase"></i> <!-- Ícono de trabajo -->
+                </div>
+                <div class="timeline-content">
+                    <h3>Ingeniero de Software</h3>
+                    <span class="timeline-date">Mayo 2019 - Diciembre 2021</span>
+                    <p>Empresa ABC</p>
+                    <p>Desarrollo de software personalizado para clientes en diversas industrias, implementando soluciones eficientes y escalables.</p>
+                </div>
+            </div>            
+            <!-- Más ítems de experiencia -->
+        </div>
+    </section>
 
-            <!-- Menú de navegación -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#inicio">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#servicios">Servicios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contacto">Contacto</a>
-                    </li>
+    <!-- Sección Educación -->
+    <section id="education" class="education reveal">
+        <h2>Educación</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-graduation-cap"></i> <!-- Ícono de graduación -->
+                </div>
+                <div class="timeline-content">
+                    <h3>Ingeniería en Sistemas Computacionales</h3>
+                    <span class="timeline-date">2016 - 2020</span>
+                    <p>Universidad XYZ</p>
+                    <p>Enfocado en el desarrollo de software, bases de datos, y sistemas distribuidos.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-graduation-cap"></i> <!-- Ícono de graduación -->
+                </div>
+                <div class="timeline-content">
+                    <h3>Máster en Ciencias de la Computación</h3>
+                    <span class="timeline-date">2020 - 2022</span>
+                    <p>Instituto ABC</p>
+                    <p>Especialización en inteligencia artificial y machine learning.</p>
+                </div>
+            </div>
+            <!-- Más ítems de educación -->
+        </div>
+    </section>
 
-                    <!-- Menú desplegable -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Más
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Blog</a></li>
-                            <li><a class="dropdown-item" href="#">Recursos</a></li>
-                            <li><a class="dropdown-item" href="#">Términos y condiciones</a></li>
-                        </ul>
-                    </li>
-
-                    <!-- Íconos de redes sociales en la barra de navegación -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.instagram.com" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.facebook.com" target="_blank">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.youtube.com" target="_blank">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.youtube.com" target="_blank">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </li>
-                </ul>
+    <!-- Sección Habilidades -->
+    <section id="skills" class="skills">
+        <h2>Habilidades</h2>
+    
+        <!-- Habilidades Técnicas -->
+        <div class="skills-category">
+            <h3>Habilidades Técnicas</h3>
+            <div class="skill-bar">
+                <p>HTML5</p>
+                <div class="progress-bar">
+                    <div class="progress" data-percentage="90"></div>
+                </div>
+            </div>
+    
+            <div class="skill-bar">
+                <p>CSS3</p>
+                <div class="progress-bar">
+                    <div class="progress" data-percentage="85"></div>
+                </div>
+            </div>
+    
+            <div class="skill-bar">
+                <p>JavaScript</p>
+                <div class="progress-bar">
+                    <div class="progress" data-percentage="80"></div>
+                </div>
+            </div>
+    
+            <div class="skill-bar">
+                <p>React.js</p>
+                <div class="progress-bar">
+                    <div class="progress" data-percentage="75"></div>
+                </div>
             </div>
         </div>
-    </nav>
-
-    <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    
+        <!-- Habilidades Blandas -->
+        <div class="skills-category">
+            <h3>Habilidades Blandas</h3>
+            <div class="skill-bar">
+                <p>Comunicación</p>
+                <div class="progress-bar">
+                    <div class="progress" data-percentage="85"></div>
+                </div>
+            </div>
+    
+            <div class="skill-bar">
+                <p>Trabajo en equipo</p>
+                <div class="progress-bar">
+                    <div class="progress" data-percentage="90"></div>
+                </div>
+            </div>
+    
+            <div class="skill-bar">
+                <p>Liderazgo</p>
+                <div class="progress-bar">
+                    <div class="progress" data-percentage="80"></div>
+                </div>
+            </div>
         </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-            <div class="container">
-              <div class="carousel-caption text-start">
-                <h1>Expertise en Soluciones Tecnológicas</h1>
-                <p class="opacity-75">Con más de 20 años de experiencia, ofrezco servicios completos de reparación de hardware, instalación de software y mantenimiento de equipos informáticos. Ya sea que necesites asistencia para tu hogar o empresa, tengo la solución adecuada para tus necesidades tecnológicas.</p>
-                <p><a class="btn btn-lg btn-primary" href="#">Saber más</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-            <div class="container">
-              <div class="carousel-caption">
-                <h1>Especialista en Redes y Servidores</h1>
-                <p>Desde la instalación de redes complejas hasta la configuración de servidores y estaciones de trabajo, garantizo que tu infraestructura tecnológica esté funcionando de manera eficiente y segura. Confía en mi experiencia para optimizar tu conectividad y asegurar tu sistema.</p>
-                <p><a class="btn btn-lg btn-primary" href="#">Saber más</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-            <div class="container">
-              <div class="carousel-caption text-end">
-                <h1>Diseño Web y Gestión de Contenidos</h1>
-                <p>Además de mi experiencia técnica, también brindo soluciones creativas en diseño web y administración de plataformas CMS como WordPress, Joomla y Drupal. Llevo tu presencia digital al siguiente nivel con diseños funcionales y optimizados para cualquier dispositivo.</p>
-                <p><a class="btn btn-lg btn-primary" href="#">Saber más</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+    </section>
+    
+    
     
 
-    <!-- Espaciado adicional debido a la barra de navegación fija -->
-    <div class="mt-5 pt-5"></div>
-
-    <!-- Contenido principal -->
-    <main class="container my-5">
-        <!-- Artículo de bienvenida -->
-        <article id="inicio" class="mb-5">
-            <h2>Bienvenido la página de wkl</h2>
-            <p>Esta es una landing page diseñada con los principales elementos de HTML5.</p>
-            <p>Aquí podrás encontrar información sobre nuestros servicios, y también podrás contactarnos fácilmente.</p>
-        </article>
-
-        <!-- Sección de servicios -->
-        <section id="servicios" class="mb-5">
-            <h2>Nuestros Servicios</h2>
-            <table class="table table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Servicio</th>
-                        <th>Descripción</th>
-                        <th>Precio</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Desarrollo Web</td>
-                        <td>Creación de sitios web personalizados</td>
-                        <td>$500</td>
-                    </tr>
-                    <tr>
-                        <td>Marketing Digital</td>
-                        <td>Estrategias de marketing para tu negocio</td>
-                        <td>$300</td>
-                    </tr>
-                </tbody>
-            </table>
-            <!-- <img src="servicios.jpg" alt="Nuestros Servicios" class="img-fluid mt-4"> -->
-        </section>
-
-        <!-- Formulario de contacto -->
-        <section id="contacto" class="mb-5">
-            <h2>Contáctanos</h2>
-            <form action="/submit" method="POST" class="row g-3">
-                <div class="col-md-6">
-                    <label for="nombre" class="form-label">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" class="form-control" required>
+    <!-- Sección Portafolio -->
+    <section id="portfolio" class="portfolio reveal">
+        <h2>Portafolio</h2>
+        <p>Si tienes alguna pregunta o deseas trabajar juntos, no dudes en ponerte en contacto.</p>
+        
+        <div class="portfolio-container">
+            <div class="portfolio-item" data-project="project1">
+                <img src="https://images.unsplash.com/photo-1677691824304-279660ceece3?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Proyecto 1">
+                <div class="portfolio-info">
+                    <h3>Proyecto 1</h3>
+                    <p>Descripción breve del proyecto. Tecnologías utilizadas: HTML, CSS, JavaScript.</p>
+                    <button class="btn open-modal" data-project="project1">Ver Detalles</button>
                 </div>
-                <div class="col-md-6">
-                    <label for="email" class="form-label">Email:</label>
-                    <input type="email" id="email" name="email" class="form-control" required>
-                </div>
-                <div class="col-12">
-                    <label for="mensaje" class="form-label">Mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" class="form-control" rows="4" required></textarea>
-                </div>
-                <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                </div>
-            </form>
-        </section>
-
-        <!-- Video multimedia -->
-        <section>
-            <h2>Video de Ejemplo</h2>
-            <div class="embed-responsive embed-responsive-16by9">
-                <video class="embed-responsive-item" controls>
-                    <source src="video.mp4" type="video/mp4">
-                    Tu navegador no soporta la reproducción de video.
-                </video>
             </div>
-        </section>
-    </main>
+    
+            <div class="portfolio-item" data-project="project2">
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y29tcHV0YWNpb258ZW58MHwwfDB8fHwy" alt="Proyecto 2">
+                <div class="portfolio-info">
+                    <h3>Proyecto 2</h3>
+                    <p>Descripción breve del proyecto. Tecnologías utilizadas: React.js, Node.js.</p>
+                    <button class="btn open-modal" data-project="project2">Ver Detalles</button>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1457305237443-44c3d5a30b89?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Proyecto 2">
+                <div class="portfolio-info">
+                    <h3>Proyecto 3</h3>
+                    <p>Descripción breve del proyecto. Tecnologías utilizadas: React.js, Node.js.</p>
+                    <a href="https://example.com" target="_blank" class="btn">Ver Proyecto</a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1480694313141-fce5e697ee25?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Proyecto 4">
+                <div class="portfolio-info">
+                    <h3>Proyecto 4</h3>
+                    <p>Descripción breve del proyecto. Tecnologías utilizadas: React.js, Node.js.</p>
+                    <a href="https://example.com" target="_blank" class="btn">Ver Proyecto</a>
+                </div>
+            </div>
+    
+            <!-- Más ítems de portafolio -->
+        </div>
+
+     <!-- Modal para mostrar detalles del proyecto -->
+    <div id="portfolioModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modal-title">Título del Proyecto</h3>
+            <p id="modal-description">Descripción detallada del proyecto.</p>
+            <p id="modal-technologies">Tecnologías: HTML, CSS, JavaScript</p>
+
+            <!-- Carrusel de imágenes -->
+            <div class="carousel">
+                <div class="carousel-inner" id="carousel-images">
+                    <!-- Las imágenes serán insertadas aquí dinámicamente -->
+                </div>
+                <!-- Botones de navegación del carrusel -->
+                <button class="carousel-control prev" id="prev">&lt;</button>
+                <button class="carousel-control next" id="next">&gt;</button>
+                <!-- Indicador de posición -->
+                <p id="carousel-indicator"></p>
+            </div>
+
+            <a href="#" id="modal-link" target="_blank" class="btn">Ver Proyecto</a>
+        </div>
+    </div>
+
+    <!-- Contenedor para la imagen ampliada (zoom) -->
+    <div id="zoomModal" class="zoom-modal">
+        <span class="close-zoom">&times;</span>
+        <img class="zoomed-image" id="zoomedImage" src="" alt="Zoom de imagen">
+    </div>
+    
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contact" class="contact reveal">
+        <h2>Contacto</h2>
+        <p>Si tienes alguna pregunta o deseas trabajar juntos, no dudes en ponerte en contacto.</p>
+        <form id="contact-form">
+            <div class="form-group">
+            <input type="text" name="name" placeholder="Tu Nombre" required>
+            </div>
+            <div class="form-group">
+            <input type="email" name="email" placeholder="Tu Correo Electrónico" required>
+            </div>
+            <div class="form-group">
+            <input type="text" name="subject" placeholder="Asunto" required>
+            </div>
+            <div class="form-group">
+            <textarea name="message" placeholder="Mensaje" required></textarea>
+            </div>
+            <button type="submit">Enviar</button>            
+        </form>
+    </section>
 
     <!-- Pie de página -->
-    <footer class="bg-dark text-white py-3 text-center">
-        <p>&copy; 2024 Todos los derechos reservados.</p>
+    <footer id="footer">
+        <div class="footer-container">
+            <p>&copy; 2024 Wilfredo Falcon. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://x.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
     </footer>
 
-    <!-- Enlace al JS de Bootstrap (para funcionalidad del menú desplegable) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Botón Volver arriba -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
+    <script src="js/script.js"></script>
 </body>
-
 </html>
