@@ -1,0 +1,958 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Estilos del header y menú de navegación */
+header {
+    position: fixed;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    
+    color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* El menú en pantallas grandes se verá como siempre */
+header nav {
+    display: flex;
+    /* justify-content: center; Centrar el menú */
+    flex: 1;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+header ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Header transparente al inicio */
+header.transparent {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+/* Header con fondo cuando se hace scroll */
+header.scrolled {
+    background-color: #333; /* Cambia este color según el diseño */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra sutil */
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 2rem;  
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-icon {
+    display: none; /* Ocultamos el ícono hamburguesa en pantallas grandes */
+}
+
+/* Estilos para el ícono de menú hamburguesa */
+/* .menu-icon {
+    display: block;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    z-index: 1001; /* Colocar el ícono por encima del menú 
+} */
+
+.menu-icon span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: all 0.4s ease-in-out; /* Transiciones suaves */
+}
+
+/* Cuando se activa el menú (clase activa) */
+.menu-icon.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px); /* Primera línea se convierte en parte de la X */
+}
+
+.menu-icon.active span:nth-child(2) {
+    opacity: 0; /* La segunda línea desaparece */
+}
+
+.menu-icon.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px); /* Tercera línea se convierte en parte de la X */
+}
+
+/* Botón de descarga a la derecha */
+.btn-download {
+    width: 180px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: auto; /* Mueve el botón hacia la derecha */
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    background-attachment: fixed; /* Fija la imagen de fondo*/
+    background-position: center;
+}
+
+.hero .container {
+    z-index: 2;
+
+}
+
+.hero::before {
+    content: '';
+    position:absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.5); /* Capa oscura para mejorar legibilidad */
+    z-index: 1;
+}
+
+.profile-pic {
+    width: 200px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    margin: 0 0.5rem;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Otras secciones: estilo similar */
+
+.skills-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 50px;
+}
+
+.description {
+    margin: 50px;
+    max-width: 80%;
+    font-size: x-large;
+}
+
+.subtitle {
+    margin: 50px;
+    max-width: 80%;
+    font-size: xx-large;
+}
+
+.skill {
+    text-align: center;
+    width: 200px;    
+}
+
+canvas {
+    width: 100%;
+    height: auto;
+}
+
+/* Estilos para la barra de progreso */
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 5px;
+    background-color: #389ac0; /* Color de la barra */
+    z-index: 2000; /* Para que siempre esté encima de otros elementos */
+}
+
+/* Estilos base para los elementos que van a revelarse */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px); /* Desplazamiento inicial hacia abajo */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Clase que se añadirá cuando los elementos sean visibles */
+.reveal-visible {
+    opacity: 1;
+    transform: translateY(0); /* Vuelve a su posición original */
+}
+
+/* Iconos de redes sociales */
+.social-links {
+    padding: 50px;
+}
+.social-links a {
+    margin: 0 0.5rem;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem; /* Tamaño de los iconos */
+}
+
+.social-links a:hover {
+    color: #007bff; /* Efecto hover */
+}
+
+/********************************/
+/* Sección de contacto */
+.contact {
+    padding: 4rem 2rem;
+    background-color: #f4f4f4; /* Fondo claro */
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.contact p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+/* Formulario de contacto */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff; /* Fondo del formulario */
+    padding: 2rem;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd; /* Borde claro */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 1rem;
+    background-color: #f9f9f9; /* Fondo del campo */
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #007bff; /* Borde en azul cuando el campo está enfocado */
+    background-color: #fff; /* Fondo blanco al hacer focus */
+    outline: none;
+}
+
+/* Botón de envío */
+button {
+    background-color: #007bff; /* Color del botón */
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056b3; /* Oscurecemos el color al hacer hover */
+}
+
+/* Responsive para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .contact {
+        padding: 2rem 1rem;
+    }
+
+    form {
+        padding: 1.5rem;
+    }
+
+    button {
+        width: 100%; /* Botón en bloque para pantallas pequeñas */
+    }
+}
+
+
+
+
+/* Estilos para pantallas móviles (menú hamburguesa) */
+@media (max-width: 768px) {
+    .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.4s ease-in-out;
+    }
+
+    .menu li {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .menu-icon {
+        display: block; /* Mostramos el ícono hamburguesa */
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: block;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        z-index: 1001; /* Colocar el ícono por encima del menú */
+    }
+
+    .menu.show {
+        opacity: 1; /* Mostramos el menú */
+        max-height: 500px; /* La altura máxima del menú cuando está desplegado */
+    }
+
+    .btn-download {
+        display: none; /* Ocultamos el botón de descarga en pantallas pequeñas */
+    }
+    
+    header .logo {
+        width: 100%;
+        text-align: center;  
+    }
+}
+
+
+/* Fondo oscuro translúcido detrás del menú */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro translúcido */
+    z-index: 999; /* Debajo del menú pero encima del resto */
+    opacity: 0;
+    visibility: hidden; /* Inicialmente oculto */
+    transition: opacity 0.4s ease, visibility 0.4s ease; /* Transición suave */
+}
+
+/* Cuando el menú está activo, mostramos el fondo oscuro */
+#overlay.active {
+    opacity: 1;
+    visibility: visible; /* Mostramos el overlay */
+}
+
+
+/***********************************************/
+/* Sección de experiencia */
+.experience {
+    padding: 4rem 2rem;
+    background-color: #f4f4f4; /* Fondo claro */
+}
+
+.experience h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+/* Estilos de la línea de tiempo para las secciones de Experiencia y Educación */
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background-color: #ddd; /* Línea central */
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+}
+
+/* Ítems de la izquierda */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+/* Ítems de la derecha */
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-icon {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border: 2px solid #007bff;
+    padding: 8px;
+    border-radius: 50%;
+    z-index: 3;
+}
+
+.timeline-content {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-content h3 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.timeline-date {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Efecto inicial para los ítems: ocultos y desplazados */
+.timeline-item {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Clase que se añade cuando el ítem es visible */
+.timeline-item.reveal {
+    opacity: 1;
+    transform: translateY(0); /* Vuelve a su posición original */
+}
+
+/* Responsive para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .timeline-item {
+        width: 100%;
+        left: 0;
+        padding-left: 2rem;
+        text-align: left;
+    }
+
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+
+    .timeline::before {
+        left: 20px; /* Mueve la línea a la izquierda */
+    }
+
+    .timeline-icon {
+        left: 20px; /* Mueve los íconos a la izquierda */
+    }
+
+    .timeline-content {
+        width: calc(100% - 40px);
+        margin-left: 2rem;
+    }
+}
+
+
+
+
+/* Responsive para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 0;
+    }
+
+    .timeline-item {
+        padding-left: 0;
+    }
+
+    .timeline-item::before, .timeline-icon {
+        left: 0;
+        transform: translateX(0);
+    }
+
+    .timeline-content {
+        width: 100%;
+        margin-left: 2rem;
+    }
+}
+
+/******************************************************/
+/* Sección de educación */
+.education {
+    padding: 4rem 2rem;
+    background-color: #f9f9f9; /* Fondo ligeramente más claro */
+}
+
+.education h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+/* Sección de educación con animaciones */
+/* Cuando el elemento es visible, aplica estas reglas */
+.timeline-item.reveal {
+    opacity: 1;
+    transform: translateY(0); /* Vuelve a su posición original */
+}
+
+/* Botón Volver arriba */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: auto;
+    
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0; /* Inicialmente oculto por opacidad */
+    visibility: hidden; /* Inicialmente oculto por visibilidad */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.4s ease, visibility 0.4s ease; /* Transición suave */
+}
+
+.back-to-top:hover {
+    background-color: #0056b3;
+}
+
+.back-to-top.show {
+    display: block; /* Mostrar cuando sea necesario */
+    opacity: 1;
+}
+
+/* Mostrar el botón con animación */
+.back-to-top.show {
+    opacity: 1; /* Hacer visible */
+    visibility: visible; /* Asegurarse de que sea interactivo */
+}
+
+/*************************************************************/
+/* Sección de habilidades */
+.skills {
+    padding: 4rem 2rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.skills h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+/* Categorías de habilidades */
+.skills-category {
+    margin-bottom: 3rem;
+}
+
+.skills-category h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #007bff; /* Color de las categorías */
+}
+
+/* Gráfico de barras */
+.skill-bar {
+    margin-bottom: 1.5rem;
+}
+
+.skill-bar p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.progress-bar {
+    background-color: #ddd;
+    border-radius: 5px;
+    position: relative;
+    height: 20px;
+    width: 100%;
+}
+
+.progress {
+    background-color: #007bff;
+    height: 100%;
+    border-radius: 5px;
+    width: 0; /* Animaremos este valor */
+    transition: width 1s ease-in-out;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+    .skills {
+        padding: 2rem 1rem;
+    }
+}
+
+
+
+
+/************************************************************/
+/* Sección de portafolio */
+.portfolio {
+    padding: 4rem 2rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.portfolio h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+/* Contenedor de los proyectos */
+.portfolio-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+/* Cada ítem del portafolio */
+.portfolio-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    overflow: hidden;
+    width: calc(33.333% - 1rem); /* 3 columnas en pantallas grandes */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.portfolio-info {
+    padding: 1.5rem;
+}
+
+.portfolio-info h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.portfolio-info p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.portfolio-item .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.portfolio-item .btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* Carrusel dentro del modal */
+.carousel {
+    position: relative;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.carousel-inner {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.carousel-control.prev {
+    left: 0;
+}
+
+.carousel-control.next {
+    right: 0;
+}
+
+.carousel-control:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Indicador de posición del carrusel */
+#carousel-indicator {
+    font-size: 1rem;
+    color: #666;
+    text-align: center;
+}
+
+
+/* Efecto hover en los proyectos */
+.portfolio-item:hover {
+    transform: translateY(-10px); /* Efecto de elevación al hacer hover */
+    box-shadow: 0 16px 24px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+/* Responsive para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .portfolio-item {
+        width: calc(50% - 1rem); /* 2 columnas en pantallas medianas */
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-item {
+        width: 100%; /* 1 columna en pantallas pequeñas */
+    }
+}
+
+
+
+/* Modal estilo */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro translúcido */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.modal h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.modal p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+.modal .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.modal .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Botón para cerrar el modal */
+.modal .close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+}
+
+.modal .close:hover {
+    color: #007bff;
+}
+
+/* Contenedor de la imagen ampliada (zoom) */
+.zoom-modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro translúcido */
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+.zoomed-image {
+    max-width: 90%;
+    max-height: 90%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra alrededor de la imagen */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Botón para cerrar el zoom */
+.close-zoom {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Efecto hover en la imagen ampliada */
+.zoomed-image:hover {
+    transform: scale(1.05); /* Ampliar ligeramente cuando se pasa el ratón por encima */
+}
+
+.close-zoom:hover {
+    color: #007bff; /* Cambiar el color del botón de cierre al hacer hover */
+}
+
+
+
+
+/* Footer */
+#footer {
+    background-color: #333; /* Fondo oscuro */
+    color: #fff; /* Texto claro */
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+#footer p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    color: #ccc; /* Color de texto más claro */
+}
+
+/* Estilos para los enlaces de redes sociales */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 1.5rem; /* Tamaño de los iconos */
+    transition: color 0.3s ease; /* Transición suave en el hover */
+}
+
+.social-links a:hover {
+    color: #007bff; /* Cambiamos el color de los iconos al hacer hover */
+}
+
+/* Responsive para pantallas más pequeñas */
+@media (max-width: 768px) {
+    #footer {
+        padding: 1.5rem 1rem;
+    }
+
+    .social-links {
+        gap: 1rem; /* Reducimos el espacio entre los iconos en pantallas pequeñas */
+    }
+}
+
