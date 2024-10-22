@@ -193,7 +193,8 @@ h1 {
 
 .skill {
     text-align: center;
-    width: 200px;    
+    width: 200px;
+    background-color: #131212;    
 }
 
 canvas {
@@ -533,35 +534,14 @@ button:hover {
 }
 
 
-
-
-/* Responsive para pantallas más pequeñas */
-@media (max-width: 768px) {
-    .timeline::before {
-        left: 0;
-    }
-
-    .timeline-item {
-        padding-left: 0;
-    }
-
-    .timeline-item::before, .timeline-icon {
-        left: 0;
-        transform: translateX(0);
-    }
-
-    .timeline-content {
-        width: 100%;
-        margin-left: 2rem;
-    }
-}
-
 /******************************************************/
 /* Sección de educación */
 .education {
     padding: 4rem 2rem;
     background-color: #f9f9f9; /* Fondo ligeramente más claro */
 }
+
+.hab
 
 .education h2 {
     text-align: center;
@@ -614,9 +594,9 @@ button:hover {
 
 /*************************************************************/
 /* Sección de habilidades */
-.skills {
+.skills {    
     padding: 4rem 2rem;
-    background-color: #f9f9f9;
+    background-color: #f4f4f4; /* Fondo claro */
     text-align: center;
 }
 
@@ -668,7 +648,7 @@ button:hover {
 /* Responsive para pantallas pequeñas */
 @media (max-width: 768px) {
     .skills {
-        padding: 2rem 1rem;
+        padding: 1rem 1rem;
     }
 }
 
@@ -693,8 +673,11 @@ button:hover {
 .portfolio-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+
+    justify-content: center;
     gap: 2rem;
+    align-items: stretch;
+    
 }
 
 /* Cada ítem del portafolio */
@@ -727,6 +710,13 @@ button:hover {
     font-size: 1rem;
     color: #666;
     margin-bottom: 1.5rem;
+    
+}
+
+
+.portfolio-titular {
+    width: 100%;
+    padding-bottom: 50px;
 }
 
 .portfolio-item .btn {
@@ -803,7 +793,8 @@ button:hover {
 /* Responsive para pantallas más pequeñas */
 @media (max-width: 768px) {
     .portfolio-item {
-        width: calc(50% - 1rem); /* 2 columnas en pantallas medianas */
+        width: 100%;
+        /* width: calc(50% - 1rem); 2 columnas en pantallas medianas */
     }
 }
 
@@ -923,7 +914,7 @@ button:hover {
 
 /* Footer */
 #footer {
-    background-color: #333; /* Fondo oscuro */
+    background-color: #000000; /* Fondo oscuro */
     color: #fff; /* Texto claro */
     padding: 2rem 1rem;
     text-align: center;
@@ -956,10 +947,16 @@ button:hover {
 @media (max-width: 768px) {
     #footer {
         padding: 1.5rem 1rem;
+
     }
 
     .social-links {
         gap: 1rem; /* Reducimos el espacio entre los iconos en pantallas pequeñas */
+    }
+
+    .footer-container {
+        margin: 0;
+
     }
 }
 
