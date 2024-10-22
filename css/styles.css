@@ -73,7 +73,95 @@ header.scrolled {
     text-align: center;
     justify-content: center;
     align-items: center;
+    
 }
+
+
+
+#menu {
+	
+	/* height: 50px; */
+	border-radius: 0px;
+}
+#menu ul, #menu li {
+	/* margin: 0 auto; */
+	padding: 0;
+	list-style: none
+}
+#menu ul {
+	/* width: 100%; */
+	text-align: center;
+}
+#menu li {
+	/* display: inline-block; */
+	/* position: relative; */
+}
+#menu a {
+	display: block;
+	line-height: 50px;
+	padding: 0 14px;
+	text-decoration: none;
+	color: #FFFFFF;
+	font-size: 16px;
+}
+#menu a.dropdown-arrow:after {
+	content: "\25BE";
+	margin-left: 5px;
+}
+#menu li a:hover {
+	color: #FFFFFF;
+	background: #4A4A4A;
+}
+#menu input {
+	display: none;
+	margin: 0;
+	padding: 0;
+	height: 50px;
+	/* width: 100%; */
+	opacity: 0;
+	cursor: pointer
+}
+#menu label {
+	display: none;
+	line-height: 50px;
+	text-align: center;
+	/* position: absolute; */
+	/* left: 35px */
+}
+#menu label:before {
+	font-size: 1.6em;
+	color: #FFFFFF;
+	content: "\2261"; 
+	margin-left: 20px;
+}
+#menu ul.sub-menus{
+	height: auto;
+	overflow: hidden;
+	/* width: 170px; */
+	background: #444444;
+	position: absolute;
+	z-index: 99;
+	display: none;
+}
+#menu ul.sub-menus li {
+	/* display: block; */
+	/* text-align: left; */
+	/* width: 100%; */
+}
+#menu ul.sub-menus a {
+	color: #FFFFFF;
+	font-size: 16px;
+}
+#menu li:hover ul.sub-menus {
+	display: block
+}
+#menu ul.sub-menus a:hover{
+	background: #F2F2F2;
+	color: #43B2C3;
+}
+
+
+
 
 .menu-icon {
     display: none; /* Ocultamos el ícono hamburguesa en pantallas grandes */
