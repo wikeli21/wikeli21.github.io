@@ -309,9 +309,9 @@ button:hover {
 
 /* Responsive para pantallas más pequeñas */
 @media (max-width: 768px) {
-    .hero .container {
-        padding-top: 250px;
-    }
+    /* .hero .container {
+        margin: 200px;
+    } */
     .contact {
         padding: 2rem 1rem;
     }
@@ -322,6 +322,9 @@ button:hover {
 
     button {
         width: 100%; /* Botón en bloque para pantallas pequeñas */
+    }
+    .social-links {
+        margin: 50px;
     }
 }
 
@@ -373,8 +376,9 @@ button:hover {
     
     header .logo {
         width: 100%;
-        text-align: center;  
+        text-align: center;                  
     }
+    
 }
 
 
